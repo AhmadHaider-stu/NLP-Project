@@ -24,6 +24,7 @@ entry.grid(row=0, column=5, padx=10, pady=10)
 
 # Numbers 1-10 dropdown
 number = ttk.Combobox(root, values=list(range(1, 11)),width=5)
+# select 1 by default
 number.current(0)
 number.grid(row=0, column=6, padx=10, pady=5, sticky="w")
 
@@ -40,7 +41,9 @@ def show():
     text_value = entry.get()                            
     number_value = int(number.get())    
     result = func(number_value, side_option, text_value)
+    # Cleans the text output
     output.delete("1.0", tk.END)
+    # add the result to the output box
     output.insert(tk.END, result)    
    
     
