@@ -62,6 +62,7 @@ def build_tfidf(df):
 def load_preprocessed(dataset):
     path = DATASETS.get(dataset)
     df = pd.read_csv(path)
+    df = df.drop_duplicates()
     text_column = df.columns[0]
     df["cleaned_review"] = df["cleaned_review"].fillna("")
     return df, text_column

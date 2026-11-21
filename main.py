@@ -36,7 +36,7 @@ def show():
     global side_option, text_value, number_value
 
     sel = options.curselection()
-    side_option = options.get(sel[0])    
+    side_option = options.get(sel[0]) if sel else "IMDB_reviews" 
     text_value = entry.get()                            
     number_value = int(number.get())    
     result = func(number_value, side_option, text_value)
